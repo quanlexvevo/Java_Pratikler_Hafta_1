@@ -34,7 +34,7 @@ public class Main {
         str.add("Galatasaray kollanıyor");
 
         list.remove(2);
-        for (String s:list){ //foreach
+        for (String s:list){ //foreach  
             System.out.println("Deger: " +list);
         }
         list.remove(2);

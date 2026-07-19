@@ -1,0 +1,9 @@
+şimdi şöyle ki Set → Tekrar eden elemana izin vermeyen koleksiyon.
+               Map → Key-Value (anahtar-değer) çiftleri tutan yapı.
+
+              bunlar interface ne yapman gerektiğini tanımlarlar ama nasıl yapılcağını söylemezler
+              hashset ve hashmap ise bu interfacelerin hash tabanlı implementasyonlarıdır.
+    Hash olmayan yapılar (ArrayList, TreeSet) elemanları teker teker karşılaştırarak arar → yavaş ama öngörülebilir sıra var.
+    Hash'li yapılar (HashSet, HashMap) hashCode() kullanarak nesneyi doğrudan doğru "kutuya" yönlendirir → çok hızlı ama sıra garantisi yok.
+    Bu hız kazanımının bedeli: sınıfının equals() ve hashCode()'unu doğru ve tutarlı yazman gerekiyor,
+    yoksa HashSet/HashMap senin nesnelerini "kayıp" gibi davranır.

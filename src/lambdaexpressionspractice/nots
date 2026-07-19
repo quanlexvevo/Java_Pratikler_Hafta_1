@@ -1,0 +1,28 @@
+
+
+Functional Interface lambdanın calısması için şarttır, içerisinde sadece 1 tane gövdesiz (abstract) metot bulunan interfacelere
+functional interface denir
+
+neden 1 tane peki, ben lambda ile --> diyerek bir kod gönderdiğimde java arkaplanda ha bu adam bu kodu şu metodun içine koymak istiyor
+diyebilmesi için ortada başka bir metot olmaması gerekir.
+
+Lambda'nın genel yazım kuralı şudur (parametreler) -> { yapılacak işler }
+
+
+Eskiden metodlara sadece veri (sayı, metin, nesne) gönderebilirdik.(Java 8 den önce)
+Bir metoda "davranış" (bir kod bloğu) göndermek istediğimizde koca koca isimsiz sınıflar (Anonymous Classes) yazmak zorundaydık.
+Lambda ifadeleri, Java'da metotlara veri yerine davranış (kod bloğu) parametresi geçmemizi sağlayan isimsiz fonksiyonlardır.
+Temel amacımız; gereksiz isimsiz sınıf (anonymous class) tanımlamalarından kurtularak kodun okunabilirliğini artırmak
+
+
+Davranış "canlıdır", bir aksiyondur, bir eylemdir, bir kuraldır. "Ne yapılacağı" bilgisidir.
+
+
+
+Lambdanın sektörde asıl kullanım amacı gelişmiş veri işleme (Stram API), ornegin
+sistemde yaşı 18 den büyük olan kullanıcıları bul isimleri büyük harf yap ve yeni bir listeye kaydet
+bunu geleneksel olarak for ve iflerle yapsak cok uzar ama lambda ile tek cümlede yazabilirim,
+
+
+Normal parametre göndermek: Aşçıya "Bana hazır bir hamburger ver" demek gibidir. (Sadece nesneyi/veriyi istersin).
+Lambda göndermek: Aşçıya "Al bu tarifi (kodu), eti böyle pişir, şu sosu dök" diyerek kendi kuralını (davranışını) mutfağa sokmak gibidir.
