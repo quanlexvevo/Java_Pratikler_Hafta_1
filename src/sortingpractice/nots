@@ -1,0 +1,25 @@
+comparable ve compareto()
+
+Comparable arayüzü bir objenin default sıralamasını belirler, sınıfın dnasına yazılır
+eğer bir class comparable'ı implement ederse içine zorunlu olarak compareTo(Object o) adında bir metot eklenir
+bu metot this ile dışarıdan gelen diğer obje ile kıyaslandığımda ondan büyük müyüm kücük müyüm yoksa eşit miyim
+metot int döndürür - dönerse ben kücüğüm 0 dönerse eşitim + dönerse büyüğüm demek olur
+
+peki sektörde nerde var, bir nesnenin değişmez standart bir sıralama kuralı varsa kullanılır örn
+banka sistemleri - transaction objeleri her zaman doğal olarak işlem tarihine göre sıralanır mantiken
+veritabanı objeleri - kullanılar id numaralına göre dizilir
+
+Orijinal sınıfın kodunu değiştirmek zorundasın.
+
+
+Comparator esnek sıralama stratejileri olarak söylenebilir, comparable sana 1 tane kural yazma hakkı tanıyor
+Comparator objenin içine dokunmadan dışarıdan istediğin kadar farklı sıralama kuralı yazmanı sağlar
+compare(Object o1, Object o2) metodu kullanılır. burda iki objeyi de dışardan alır ve kuralımıza göre kıyaslar
+
+Sektörde nerde kullanılıyor peki,
+e ticaret (trendyol hepsiburada) ürünleri listelerken sıralama yapma kutucuğundaki işte fiyat artan fiyat azalan, en cok beğenilen gibi
+her bi seçenek arka planda farklı bir Comparator sınıfıdır
+
+oyun sektöründe envanterdeki dizme seçenekleri yine keza bir şeye göre diz barından hepsi Comparatordür (Hasara göre diz gibi)
+
+Orijinal sınıfa hiç dokunmadan dışarıdan yazılır.

@@ -5,7 +5,6 @@ package enumpractice;
         * mantık olarak örnek vericek olursak bir oyunumuz var atıyorum God Of War oynucaz oyun başlarken bize zorluk seçtiriyor
         * eğer zorlukları String olarak KOLAY ORTA ZOR diye tutarsam ve ilerde entityleri zorluklarını levele bağlı güncellerken
         * COK_ZOR, CKLY şeklinde almaya çalısırsam patlar, veyahut int olarak 1 2 3 olarak sınıflarken biri 99 girebilir
-        *
         * ENUMLAR ise Tip Güvenliği sağlar kullanıcıyı kısıtlar, okunabilirliği arttırır.
         *
         * Peki enum metodlarında neler var
@@ -23,6 +22,21 @@ package enumpractice;
         *
         * compareTo(Enum e) iki enum değerinin sırasını kıyaslar, biri diğerinden önce mi sonra mı tanımlanmıs onu anlamayı sağlar
         * aralarındaki sıra (index) farkını sayı olarak döndürür
+        *
+        *
+        * Bir Enum'un Aslında "Class" Olduğunun 3 Kanıtı:
+
+Değişken ve Metot Alabilir: İçerisine normal bir class gibi özellikler (örneğin can puanı, hasar çarpanı)
+* ve fonksiyonlar ekleyebilirsin.
+
+Constructor (Kurucu Metot) Alabilir:
+* Enum sabitlerine (KOLAY, ZOR) yaratıldıkları anda başlangıç değerleri atayabilirsin.
+
+Interface Uygulayabilir (Implements):
+*  Başka bir sınıftan miras alamazlar (çünkü zaten java.lang.Enum'dan miras alıyorlar),
+* ama tıpkı normal class'lar gibi arayüzleri (interface) implements edebilirler.
+*
+* Dışarıdan asla new anahtar kelimesiyle yeni bir nesne (obje) üretemezsin!
         *
         * */
 

@@ -1,0 +1,54 @@
+Streamler bir interface dir, yani new Stream() diyerek doğrudan bir nesne üretilemez
+Stream interfaceinin içinde filter , map , collect gibi metotların imzası vardır.
+bu sayede java, listeyi hangi veri yapısıyla kurduguna bakmaksızın (arraylist, linkedlist, hashset vs) standart bir stream
+arayüzü üzerinden halleder.
+
+Stream mantığını özetlicek olursam, bir fabrikada üretim bandı gibi, eldeki listeyi bu üretim bandına koyarım ve yolda çeşitli
+işlemler uygulanır (Lambda kuralları), işlemi bitenleri işin sonunda yeni bir kutuya koyar cıkarsın (kutuya koyup cıkma dedigim sey
+collect() )
+
+Okunabilirlik: Karmaşık veri işleme operasyonlarını İngilizce bir cümle okur gibi yukarıdan aşağıya okutur.
+
+Orijinalliği Koruma (Immutability): Asla orijinal listeyi bozmaz. İşlemleri hafızada geçici bir "akış" üzerinde yapar ve sana yepyeni
+bir sonuç verir.
+
+Performans: Çok büyük verilerde arka planda çoklu çekirdek (multi-thread) kullanarak işlemleri otomatik hızlandırabilir (parallelStream).
+
+
+
+stream() mevcut listeni alır ve o üretim bandına koyar, işlemler hep bunla başlar
+
+3 ana istasyon var
+
+1)
+filter() verileri süzgeçten geçirir, içerisine true veya false döndüren bir lambda kuralı alır, kurala uymayanlar devam edemez
+örn dusman --> dusman.startsWith("O") (Sadece o harfiyle başlayanlar geçsin)
+
+2)
+map() filterdan sonra devam eden verilerin şeklini değiştirmek veyahut içinden başka bir özelliği koparmak için kullanılır.
+örn dusman --> dusman.toUpperCase()
+
+3)
+collect() filter ve mapten kalan fonksiyonları alır ve yepyeni bir list (yukardaki anlatımdaki kutu) içine koyup teslim eder
+
+diğerleri:
+
+4)
+distinct() kopya-tekrar eden veriler olursa onun engellenmesi için kullanılır, eşsizlik sağlar.
+
+5)
+sorted() verileri kücükten büyüğe a dan z ye sıralı dizer, istersek kendimiz kural verip özel sıralama yaptırabiliriz
+
+6)
+limit(n) bandın o noktasına kadar gelen verilerden sadece ilk n kadarının geçmesine izin verir, kalanı çöpe atar
+sayfalama veya en iyi 5 gibi mantıklarda kullanılır
+
+7)
+toList() bandın en sonudur collect gibi yeni list içine koyar teslim eder , bundan sonra .filter falan ekleyemezsin
+collectle ayrıştığı yer burasıdır aslında sonradan eklenemez bişi kilitlidir collectte ekleyebilirsin, to list daha temizdır kısadır
+daha hızlıdır,
+
+
+Backend (API Geliştirme): Veritabanından 10,000 tane kullanıcı çektin diyelim.
+Sadece "Aktif" olanları bul (filter), bu kullanıcıların şifrelerini gizleyip sadece isimlerini ve maillerini al (map),
+isme göre alfabetik sırala (sorted), sadece ilk 50 tanesini sayfada göster (limit) ve JSON'a çevirmek üzere listele (toList).
